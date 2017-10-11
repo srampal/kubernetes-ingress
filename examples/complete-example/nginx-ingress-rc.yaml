@@ -13,15 +13,14 @@ spec:
       labels:
         app: nginx-ingress
     spec:
+      hostNetwork: true
       containers:
       - image: nginxdemos/nginx-ingress:1.0.0
         imagePullPolicy: Always
         name: nginx-ingress
         ports:
         - containerPort: 80
-          hostPort: 80
         - containerPort: 443
-          hostPort: 443
         env:
         - name: POD_NAMESPACE
           valueFrom:
